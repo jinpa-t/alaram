@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+      <div class="contain">
+          <h3 style="color:white;text-align:center">Create your Alarm</h3>
+<!--         <p id="header">Alarm Set to: <strong id="time">00:00</strong><small id="meridian"> AM</small></p> -->
+        <div style="color:red" id="error">
+            
+        </div>
+        <div id="update-alarm-temp">
+            <select name="hour" id="upd-hour">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <span style="color:white; font-weight:bold">:</span>
+            <input type="number" name="minutes" id="upd-minutes" max="59" min="0"  value="0"/>
+            <select name="meridiem" id="upd-am_pm">
+                <option value="am">AM</option>
+                <option value="pm">PM</option>
+            </select>
+            
+            <select multiple="multiple" id="upd-days">
+                <option value="mon">Mon</option>
+                <option value="tu">Tu</option>
+                <option value="wed">Wed</option>
+                <option value="th">Th</option>
+                <option value="fr">Fr</option>
+                <option value="sa">Sa</option>
+                <option value="su">St</option>
+            </select>
+            <br/>
+            <input id="upd-alarmName" type="text" placeholder="alarm name" value=""/>
+            <input id="upd-id" type="hidden" value="">
+            <br/>
+            <button onclick="updateAlarm(this)">Update Alarm</button>
+            <button id="dismiss" onclick="cancelAlarmUpdate()">Cancel</button>            
+        </div>
+        
+        <br/><br/>
+        <select name="hour" id="hour">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        <span style="color:white; font-weight:bold">:</span>
+        <input type="number" name="minutes" id="minutes" max="59" min="0"  value="0"/>
+        <select name="meridiem" id="am_pm">
+            <option value="am">AM</option>
+            <option value="pm">PM</option>
+        </select>
+        
+        <select multiple="multiple" id="days">
+            <option value="mon">Mon</option>
+            <option value="tu">Tu</option>
+            <option value="wed">Wed</option>
+            <option value="th">Th</option>
+            <option value="fr">Fr</option>
+            <option value="sa">Sa</option>
+            <option value="su">St</option>
+        </select>
+        <br/>
+        <input id="alarmName" type="text" placeholder="alarm name" value=""/>
+        <button style="color:green" onclick="addAlarm()">+</button>
+        <br/>
+        <div class="holder" style="overflow:auto">
+            <div class="alarm-holders"></div>
+            <template>
+                <div class="alarm" style="color:white; padding:5px 5px;display:block">
+                    <div class="alarmName"></div>
+                    <span class="time" style="font-weight:bold">10:20</span><span class="merid"> AM</span>
+                    <button class="update-btn" onclick="showUpdateTemplate(this)">Edit</button>
+                    <button class="stop-btn" onclick="stopAlarmFromButton(this)">Stop</button>
+                    <button class="delete-btn" onclick="deleteAlarm(this)">Delete</button>
+                    <br/>
+                    <small class="days"></small>
+                    <input class="id" type="hidden" value="">
+                </div>                
+            </template>
+        </div>
+<!--         <button onclick="updateTime()">Update time</button>
+        <button id="dismiss" onclick="stopAlarm()">Stop</button> -->
+
+      </div>
+    <script src="script.js"></script>
+  </body>
+</html>
